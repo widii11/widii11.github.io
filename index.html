@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My PWA App</title>
+
+    <!-- Manifest untuk PWA -->
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Icon untuk tab browser -->
+    <link rel="icon" href="icon-192.png" sizes="192x192" type="image/png" />
+    <link rel="apple-touch-icon" href="icon-512.png" />
+
+</head>
+<body>
+    <h1>Hello, this is my PWA!</h1>
+    <p>You can install this app on your device.</p>
+
+    <script>
+        // Daftarkan Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+            .then(function(registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            })
+            .catch(function(error) {
+                console.log('ServiceWorker registration failed: ', error);
+            });
+        }
+    </script>
+</body>
+</html>
